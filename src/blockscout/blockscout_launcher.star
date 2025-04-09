@@ -24,6 +24,7 @@ USED_PORTS = {
         HTTP_PORT_NUMBER,
         shared_utils.TCP_PROTOCOL,
         shared_utils.HTTP_APPLICATION_PROTOCOL,
+        wait="10s",
     )
 }
 
@@ -32,6 +33,7 @@ VERIF_USED_PORTS = {
         HTTP_PORT_NUMBER_VERIF,
         shared_utils.TCP_PROTOCOL,
         shared_utils.HTTP_APPLICATION_PROTOCOL,
+        wait="10s",
     )
 }
 
@@ -40,6 +42,7 @@ FRONTEND_USED_PORTS = {
         HTTP_PORT_NUMBER_FRONTEND,
         shared_utils.TCP_PROTOCOL,
         shared_utils.HTTP_APPLICATION_PROTOCOL,
+        wait="10s",
     )
 }
 
