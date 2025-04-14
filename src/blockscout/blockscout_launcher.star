@@ -137,9 +137,7 @@ def get_config_verif(
                 HTTP_PORT_NUMBER_VERIF
             ),
             "SMART_CONTRACT_VERIFIER__SERVER__HTTP__THREAD_COUNT": "4",
-            "SMART_CONTRACT_VERIFIER__SOLIDITY__COMPILERS__LIST__INSTANCES_PER_COMPILE_FROM_METADATA": "2",
             "SMART_CONTRACT_VERIFIER__SOLIDITY__VERIFICATION__TIMEOUT": "300",
-            "SMART_CONTRACT_VERIFIER__SOLIDITY__COMPILERS__SOLC__MAX_MEMORY_USAGE_MB": "1024"
         }
     
     if hasattr(blockscout_params, "verifier_settings") and blockscout_params.verifier_settings:
