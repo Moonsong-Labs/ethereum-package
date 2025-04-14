@@ -131,6 +131,19 @@ def get_config_verif(
         additional_service_index,
         0,
     )
+    
+    verifier_env_vars = {
+            "SMART_CONTRACT_VERIFIER__SERVER__HTTP__ADDR": "0.0.0.0:{}".format(
+                HTTP_PORT_NUMBER_VERIF
+            ),
+            "SMART_CONTRACT_VERIFIER__SERVER__HTTP__THREAD_COUNT": "4",
+            "SMART_CONTRACT_VERIFIER__SOLIDITY__COMPILERS__LIST__INSTANCES_PER_COMPILE_FROM_METADATA": "2",
+            "SMART_CONTRACT_VERIFIER__SOLIDITY__VERIFICATION__TIMEOUT": "300",
+            "SMART_CONTRACT_VERIFIER__SOLIDITY__COMPILERS__SOLC__MAX_MEMORY_USAGE_MB": "1024"
+        }
+    
+    if hasattr(blockscout_params, "verifier_settings") and blockscout_params.verifier_settings:
+        verifier_env_vars.update(blockscout_params.verifier_settings)
 
     return ServiceConfig(
         image=shared_utils.docker_cache_image_calc(
@@ -139,11 +152,7 @@ def get_config_verif(
         ),
         ports=VERIF_USED_PORTS,
         public_ports=public_ports,
-        env_vars={
-            "SMART_CONTRACT_VERIFIER__SERVER__HTTP__ADDR": "0.0.0.0:{}".format(
-                HTTP_PORT_NUMBER_VERIF
-            )
-        },
+        env_vars=verifier_env_vars,
         min_cpu=BLOCKSCOUT_VERIF_MIN_CPU,
         max_cpu=BLOCKSCOUT_VERIF_MAX_CPU,
         min_memory=BLOCKSCOUT_VERIF_MIN_MEMORY,
