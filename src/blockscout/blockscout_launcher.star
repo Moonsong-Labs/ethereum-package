@@ -136,8 +136,6 @@ def get_config_verif(
             "SMART_CONTRACT_VERIFIER__SERVER__HTTP__ADDR": "0.0.0.0:{}".format(
                 HTTP_PORT_NUMBER_VERIF
             ),
-            "SMART_CONTRACT_VERIFIER__SERVER__HTTP__THREAD_COUNT": "4",
-            "SMART_CONTRACT_VERIFIER__SOLIDITY__VERIFICATION__TIMEOUT": "300",
         }
     
     if hasattr(blockscout_params, "verifier_settings") and blockscout_params.verifier_settings:
